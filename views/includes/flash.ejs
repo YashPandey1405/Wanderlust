@@ -1,0 +1,33 @@
+<!-- Flash Code For Success Message -->
+<% if(success && success.length){ %>
+<div
+  class="alert alert-success alert-dismissible fade show col-6 offset-3"
+  role="alert"
+>
+  <strong><%= success %></strong>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+    style="outline: none; box-shadow: none"
+  ></button>
+</div>
+<% } %>
+
+<!-- Flash Code For Error Message -->
+<% if(error && error.length){ %>
+<div
+  class="alert alert-danger alert-dismissible fade show col-6 offset-3"
+  role="alert"
+>
+  <strong><%= error %></strong>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+    style="outline: none; box-shadow: none"
+  ></button>
+</div>
+<% } %>
