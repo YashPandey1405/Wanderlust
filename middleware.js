@@ -2,7 +2,6 @@ const Listing = require("./models/listing.js");
 const Review = require("./models/review.js");
 const ExpressError = require("./utils/ExpressError.js");
 const { ListingSchema, listingSchema, reviewSchema } = require("./schema.js");
-const jwt = require("jsonwebtoken");
 
 // module.exports.isLoggedIn = (req, res, next) => {
 // Check if the user is authenticated

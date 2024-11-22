@@ -13,13 +13,14 @@ router
   .route("/")
   .get(wrapAsync(listingController.indexRoute))
   .post(
+    isLoggedIn,
     upload.single("listing[image]"),
     validateListing,
     wrapAsync(listingController.createListingRoute)
   );
 
 // New Route To Add A New Listing.....
-router.get("/new", listingController.newListingRoute);
+router.get("/new", isLoggedIn, listingController.newListingRoute);
 
 // Selected Route To Display An Selected Listing.....
 router.get("/selected/:demand", listingController.showSelectedListingRoute);
