@@ -6,16 +6,16 @@ const jwt = require("jsonwebtoken");
 
 module.exports.isLoggedIn = (req, res, next) => {
   // Check if the user is authenticated
-  if (!req.isAuthenticated || !req.isAuthenticated()) {
-    // Store the original URL for redirecting after login
-    req.session.redirectURL = req.originalUrl || req.url;
+  // if (!req.isAuthenticated || !req.isAuthenticated()) {
+  //   // Store the original URL for redirecting after login
+  //   req.session.redirectURL = req.originalUrl || req.url;
 
-    // Flash an error message
-    req.flash("error", "You must be logged in to create a listing");
+  //   // Flash an error message
+  //   req.flash("error", "You must be logged in to create a listing");
 
-    // Redirect to the login page
-    return res.redirect("/login");
-  }
+  //   // Redirect to the login page
+  //   return res.redirect("/login");
+  // }
 
   // If authenticated, proceed to the next middleware
   next();
