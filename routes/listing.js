@@ -19,7 +19,7 @@ router
   );
 
 // New Route To Add A New Listing.....
-router.get("/new", isLoggedIn, listingController.newListingRoute);
+router.get("/new", listingController.newListingRoute);
 
 // Selected Route To Display An Selected Listing.....
 router.get("/selected/:demand", listingController.showSelectedListingRoute);
