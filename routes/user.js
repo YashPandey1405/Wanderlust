@@ -10,6 +10,10 @@ const { storage } = require("../cloudConfig.js");
 const upload = multer({ storage });
 const Listing = require("../models/listing.js");
 
+router.get("/", (req, res) => {
+  res.redirect("/listings");
+});
+
 // Get & Post Route To Signup User.....
 router
   .route("/signup")
