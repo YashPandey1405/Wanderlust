@@ -4,31 +4,31 @@ const ExpressError = require("./utils/ExpressError.js");
 const { ListingSchema, listingSchema, reviewSchema } = require("./schema.js");
 const jwt = require("jsonwebtoken");
 
+// module.exports.isLoggedIn = (req, res, next) => {
+// Check if the user is authenticated
+// if (!req.isAuthenticated || !req.isAuthenticated()) {
+//   // Store the original URL for redirecting after login
+//   req.session.redirectURL = req.originalUrl || req.url;
+
+//   // Flash an error message
+//   req.flash("error", "You must be logged in to create a listing");
+
+//   // Redirect to the login page
+//   return res.redirect("/login");
+// }
+
+// If authenticated, proceed to the next middleware
+// next();
+// };
+
 module.exports.isLoggedIn = (req, res, next) => {
-  // Check if the user is authenticated
-  // if (!req.isAuthenticated || !req.isAuthenticated()) {
-  //   // Store the original URL for redirecting after login
-  //   req.session.redirectURL = req.originalUrl || req.url;
-
-  //   // Flash an error message
-  //   req.flash("error", "You must be logged in to create a listing");
-
-  //   // Redirect to the login page
-  //   return res.redirect("/login");
-  // }
-
-  // If authenticated, proceed to the next middleware
+  if (!req.isAuthenticated()) {
+    req.session.redirectURL = req.originalUrl;
+    req.flash("error", "You must be logged-in To Create Listing");
+    return res.redirect("/login");
+  }
   next();
 };
-
-// module.exports.isLoggedIn = (req, res, next) => {
-//   if (!req.isAuthenticated()) {
-//     req.session.redirectURL = req.originalUrl;
-//     req.flash("error", "You must be logged-in To Create Listing");
-//     return res.redirect("/login");
-//   }
-//   next();
-// };
 
 module.exports.saveRedirectUrl = (req, res, next) => {
   if (req.session.redirectURL) {
