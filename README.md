@@ -1,4 +1,4 @@
-# **Wanderlust** - MERN Stack E-Commerce Website
+# **Wanderlust** - A Modern MERN-Powered Travel Stay Marketplace
 
 **Wanderlust** is an e-commerce website built with the complete MERN stack (MongoDB, Express, React, Node.js). It functions as a platform similar to Airbnb, allowing users to list properties, browse, and interact with listings. The website has several features aimed at improving the user experience and data security.
 
@@ -17,7 +17,7 @@
 
 ### **Technologies Used:**
 - **Frontend:**
-  - HTML, CSS, JavaScript, React.js
+  - HTML, CSS, JavaScript, React.js, BootStrap
   - NPM Packages: Axios, React Router DOM, EJS
 - **Backend:**
   - Node.js, Express.js, MongoDB, Mongoose
@@ -69,6 +69,3 @@ Feel free to fork the repository, create a branch, and submit a pull request wit
 ### **License:**
 MIT License.
 
----
-
-This README covers the key aspects of your project, from setup to features, and even future improvements. Let me know if you'd like to make any adjustments!
