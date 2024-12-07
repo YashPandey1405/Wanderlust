@@ -4,7 +4,7 @@
 
 ### **Live Link**
 
-[Wanderlust - Live on Render](https://wanderlust-jlx2.onrender.com/)
+[Wanderlust - Live on Render](https://wanderlust-ew45.onrender.com/)
 
 ### **Features Implemented:**
 
