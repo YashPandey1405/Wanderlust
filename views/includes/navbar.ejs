@@ -1,0 +1,62 @@
+<nav
+  class="navbar navbar-expand-lg bg-body-tertiary navbar-light bg-light border-bottom sticky-top ps-3 pt-3 pb-3"
+>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings"
+      ><i class="fa-regular fa-compass"></i
+    ></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/listings"
+            >Explore</a
+          >
+        </li>
+      </ul>
+      <div class="ms-auto">
+        <form
+          class="d-flex"
+          role="search"
+          action="/listings/search"
+          method="GET"
+        >
+          <input
+            class="form-control me-2 search-input"
+            type="search"
+            placeholder="Search destinations"
+            aria-label="Search"
+            name="search"
+          />
+          <button class="btn search-btn" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+      </div>
+      <!-- Use ms-auto here -->
+      <div class="navbar-nav ms-auto">
+        <a class="nav-item nav-link" href="/listings/new">Add New Listing</a>
+        <% if(! currUser){ %>
+        <a class="nav-item nav-link" href="/signup"><b>Signup</b></a>
+        <a class="nav-item nav-link" href="/login"><b>Log-in</b></a>
+        <% } %> <% if( currUser){ %>
+        <a class="nav-item nav-link" href="/logout"><b>Log-out</b></a>
+        <!-- <a class="nav-item nav-link" href="/profile"><b>Profile</b></a> -->
+        <a class="nav-item nav-link" href="/profile"
+          ><i class="fas fa-user-circle fa-2x mt-0" style="color: red"></i
+        ></a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,74 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row mt-3">
+  <h2 class="col-6 offset-3 mt-3">SignUp On Wanderlust</h2>
+  <div class="col-6 offset-3">
+    <form
+      method="post"
+      action="/signup"
+      novalidate
+      class="needs-validation"
+      enctype="multipart/form-data"
+    >
+      <div class="row">
+        <div class="mt-2 mb-3 col-md-4">
+          <label for="user[username]" class="form-label">username :</label>
+          <input
+            type="text"
+            id="username"
+            class="form-control"
+            name="user[username]"
+            placeholder="Enter the username"
+            required
+          />
+          <div class="valid-feedback">Username Looks Good!</div>
+          <div class="invalid-feedback">Please Enter A Username</div>
+        </div>
+        <div class="mt-2 mb-3 col-md-8">
+          <label for="user[email]" class="form-label">Email :</label>
+          <input
+            type="text"
+            id="email"
+            class="form-control"
+            name="user[email]"
+            placeholder="Enter the Email"
+            required
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="user[about]" class="form-label"
+          >Tell Us About Yourself :</label
+        >
+        <input
+          type="text"
+          id="title"
+          class="form-control"
+          name="user[about]"
+          placeholder="Please provide some information about yourself"
+          required
+        />
+        <div class="valid-feedback">Title Looks Good!</div>
+        <div class="invalid-feedback">Please Enter A Title</div>
+      </div>
+      <div class="mb-3">
+        <label for="user[image]" class="form-label"
+          >Upload Listing Image :
+        </label>
+        <input type="file" id="image" class="form-control" name="user[image]" />
+      </div>
+      <div class="mb-3">
+        <label for="user[password]" class="form-label">Password :</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          name="user[password]"
+          placeholder="Enter the Password"
+          required
+        />
+        <div class="invalid-feedback">Password Is Required</div>
+      </div>
+      <button type="submit" class="btn btn-primary mt-3 mb-3">Signup</button>
+    </form>
+  </div>
+</div>

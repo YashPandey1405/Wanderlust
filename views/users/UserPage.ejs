@@ -1,0 +1,98 @@
+<% layout("/layouts/boilerplate") %>
+<section
+  class="w-100 px-4 py-5"
+  style="background-color: #ffffff; border-radius: 0.5rem 0.5rem 0 0"
+>
+  <div class="row d-flex justify-content-center">
+    <div class="col col-md-9 col-lg-7 col-xl-6">
+      <div class="card" style="border-radius: 15px">
+        <div class="card-body p-4">
+          <div class="d-flex">
+            <div class="flex-shrink-0">
+              <img
+                src="<%= currentUser.image.url %>"
+                alt="Generic placeholder image"
+                class="img-fluid"
+                style="width: 180px; height: full; border-radius: 10px"
+              />
+            </div>
+            <div class="flex-grow-1 ms-3 mt-2">
+              <h4 class="mb-1.5 ms-auto">
+                &nbsp; &nbsp;
+                <i><%= currentUser.username %></i>
+              </h4>
+              <p class="mb-2 pb-1"><b>About : </b><%= currentUser.about %></p>
+              <p class="mb-2 pb-1"><b>Email : </b><%= currentUser.email %></p>
+              <p class="mb-2 pb-1">
+                <b>Total Listings : </b><%= allListings.length %>
+              </p>
+              <p class="mb-2 pb-1"><b>Total Reviews : </b><%= reviewCount %></p>
+              <div class="d-flex pt-1 pb-1">
+                <div class="flex-grow-1 me-1">
+                  <form
+                    action="/Profile/<%= currentUser._id %>/edit"
+                    method="GET"
+                  >
+                    <button
+                      class="btn btn-outline-primary w-100"
+                      type="submit"
+                      data-mdb-button-init
+                      data-mdb-ripple-init
+                    >
+                      Edit Profile
+                    </button>
+                  </form>
+                </div>
+
+                <div class="flex-grow-1 me-1">
+                  <form
+                    action="/Profile"
+                    method="POST"
+                    onsubmit="return confirm('Are you sure you want to delete your profile?');"
+                  >
+                    <button
+                      class="btn btn-outline-danger w-100"
+                      type="submit"
+                      data-mdb-button-init
+                      data-mdb-ripple-init
+                    >
+                      Delete Profile
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<% if(allListings && allListings.length) { %>
+<h2 style="text-align: center">Check Out Your Listings!</h2>
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+  <% for(let list of allListings){ %>
+  <a href="/listings/<%=list._id%>" class="listing-link">
+    <div class="card col listing-card">
+      <img
+        class="card-img-top"
+        src="<%= list.image.url %>"
+        alt="<%= list.title %>"
+        style="height: 20rem"
+      />
+      <div class="card-img-overlay"></div>
+      <div class="card-body">
+        <p class="card-text">
+          <b><%= list.title %></b> <br />
+          &#8377; <%= list.price.toLocaleString("en-IN") %> / Night<i
+            class="tax-info"
+            >&nbsp;&nbsp; +18% GST</i
+          >
+        </p>
+      </div>
+    </div>
+  </a>
+  <% } %>
+</div>
+<% } %>
